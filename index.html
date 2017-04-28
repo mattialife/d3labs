@@ -1,5 +1,67 @@
 <html>
-	<body>
-		<h1>hellusss</h1>
-	</body>
-<html>
+    <head>
+        <title>Esercizio</title>
+    </head>
+    
+    
+    
+    <style>
+        body {
+            margin: 0 px;
+        }
+        h1 {
+            color: black;
+            font-style: italic;
+        }
+        ul li {
+            list-style: none;
+        }
+    </style>
+    
+    
+    
+    
+    
+    <body> 
+        <h1 id="Title">Changerr Titless</h1>
+        <div id="clock"></div>
+        <div>
+            <label>Cambia il titolo della pagina: </label>
+            <input type='Text' id="textInput">
+            <button onclick="changeTitle()">here</button>
+        </div>
+        <ul id="log">
+        </ul>
+    </body>
+    
+    
+    
+    <script>
+        var newTitle = "This is the new title";
+        
+        setInterval(function(){
+            document.getElementById("clock").innerHTML = new Date().toTimeString();
+        }, 1000)
+        
+        function logTitle(newTitle){
+            var log = document.getElementById("log");
+            var newEntry = document.createElement("li");
+            var date = new Date();
+            newEntry.innerHTML = newTitle + " - " + date.toTimeString()
+            log.appendChild(newEntry)
+        }
+        
+        function changeTitle(newTitle){
+            if(!newTitle){
+                newTitle = document.getElementById("textInput").value;
+            }
+            var titleElement = document.getElementById("Title");
+            titleElement.innerHTML = newTitle;
+            logTitle(newTitle)
+        }
+    </script>
+    
+    
+    
+    
+</html>
